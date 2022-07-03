@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { PatientComponent } from './patient/patient.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
+import {AppRoutingModule} from "./app-routing.module";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientComponent
+    PatientComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
