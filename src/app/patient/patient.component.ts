@@ -12,7 +12,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class PatientComponent implements OnInit{
   patient$!: Observable<PatientModel>;
   patientForm! : FormGroup;
-  //show=false;
+  show=false;
 
   constructor(private patientService: PatientService, private formBuilder: FormBuilder) { }
 
@@ -25,7 +25,10 @@ export class PatientComponent implements OnInit{
 
   onSubmit() {
   this.patient$ = this.patientService.getPatient(this.patientForm.value.firstName, this.patientForm.value.lastName);
-  //this.show=true;
+  }
+
+  onUpdate() {
+  this.show=true;
   }
 
 }

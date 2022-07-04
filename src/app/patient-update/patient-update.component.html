@@ -1,0 +1,61 @@
+<div class="registration-container col-10 border border-dark rounded py-5 m-auto">
+  <form [formGroup]="patientUpdateForm">
+    <div class="text-center">
+      <h1>Patient Update form</h1>
+    </div>
+    <div class="form-group col-11 mx-5 my-4">
+      <div class="form-group  col-11 mx-5 my-4">
+        <label for="firstName">First Name</label><br>
+        <input class="col-11" id="firstName" type="text" formControlName="firstName">
+        <div class="alert-danger col-11"
+             *ngIf="patientUpdateForm.controls['firstName'].hasError('required') && patientUpdateForm.controls['firstName'].touched">
+          First Name is required
+        </div>
+    </div>
+    <div class="form-group  col-11 mx-5 my-4">
+      <label for="lastName">Last Name</label><br>
+      <input class="col-11" id="lastName" type="text" formControlName="lastName">
+      <div class="alert-danger col-11"
+           *ngIf="patientUpdateForm.controls['lastName'].hasError('required') && patientUpdateForm.controls['lastName'].touched">
+        Last Name is required
+      </div>
+    </div>
+      <div class="form-group  col-11 mx-5 my-4">
+        <label for="dateOfBirth">Date of birth</label><br>
+        <input class="col-11" id="dateOfBirth" type="text" formControlName="dateOfBirth">
+        <div class="alert-danger col-11"
+             *ngIf="patientUpdateForm.controls['dateOfBirth'].hasError('required') && patientUpdateForm.controls['dateOfBirth'].touched">
+          Date of birth is required
+        </div>
+      </div>
+      <div class="form-group  col-11 mx-5 my-4">
+        <label for="gender">Gender</label><br>
+        <input class="col-11" id="gender" type="text" formControlName="gender">
+        <div class="alert-danger col-11"
+             *ngIf="patientUpdateForm.controls['gender'].hasError('required') && patientUpdateForm.controls['gender'].touched">
+          Gender is required
+        </div>
+      </div>
+      <div class="form-group  col-11 mx-5 my-4">
+        <label for="address">Address</label><br>
+        <input class="col-11" id="address" type="text" formControlName="address">
+        <div class="alert-danger col-11"
+             *ngIf="patientUpdateForm.controls['address'].hasError('required') && patientUpdateForm.controls['address'].touched">
+          Address is required
+        </div>
+      </div>
+      <div class="form-group  col-11 mx-5 my-4">
+        <label for="phoneNumber">Phone Number</label><br>
+        <input class="col-11" id="phoneNumber" type="text" formControlName="phoneNumber">
+        <div class="alert-danger col-11"
+             *ngIf="patientUpdateForm.controls['phoneNumber'].hasError('required') && patientUpdateForm.controls['phoneNumber'].touched">
+          Phone Number is required
+        </div>
+      </div>
+      <div class="text-center mt-5">
+      <button type="submit" (click)="onSubmitForm()" class="btn btn-primary" [disabled]="patientUpdateForm.invalid">Validate
+      </button>
+    </div>
+</div>
+  </form>
+</div>

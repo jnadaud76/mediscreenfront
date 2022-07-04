@@ -7,12 +7,14 @@ import {HttpClientModule} from "@angular/common/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import { HeaderComponent } from './header/header.component';
+import { PatientUpdateComponent } from './patient-update/patient-update.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientComponent,
-    HeaderComponent
+    HeaderComponent,
+    PatientUpdateComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class PatientService {
   }
 
   getAllPatient(): Observable<PatientModel[]> {
-    return this.http.get<PatientModel[]>(`http://localhost:8081/api/patient/patients`);
+    return this.http.get<PatientModel[]>(`http://localhost:8081/api/patient/patient/patients`);
   }
 
   getPatientById(patientId: number): Observable<PatientModel> {
@@ -21,6 +21,10 @@ export class PatientService {
 
   getPatient(firstName: string, lastName: string): Observable<PatientModel> {
     return this.http.get<PatientModel>(`http://localhost:8081/api/patient/patient?firstName=${firstName}&lastName=${lastName}`);
+  }
+
+  updatePatient(patientModel: PatientModel) {
+      return this.http.post(`http://localhost:8081/api/patient/patientupdate`, patientModel);
   }
 
 }

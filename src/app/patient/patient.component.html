@@ -32,21 +32,25 @@
           <th class="col-1" scope="col">LastName</th>
           <th class="col-2" scope="col">Date of birth</th>
           <th class="col-1" scope="col">Gender</th>
-          <th class="col-5" scope="col">Address</th>
+          <th class="col-4" scope="col">Address</th>
           <th class="col-2" scope="col">PhoneNumber</th>
+          <th class="col-1" scope="col">Update</th>
         </tr>
         </thead>
         <tbody>
         <tr>
           <td class="col-1">{{patientModel.firstName}}</td>
           <td class="col-1">{{patientModel.lastName}}</td>
-          <td class="col-2">{{patientModel.date | date: 'dd/MM/yy'}}</td>
+          <td class="col-2">{{patientModel.dateOfBirth | date: 'yyyy/MM/dd'}}</td>
           <td class="col-1">{{patientModel.gender}}</td>
-          <td class="col-5">{{patientModel.address}}</td>
+          <td class="col-4">{{patientModel.address}}</td>
           <td class="col-2">{{patientModel.phoneNumber}}</td>
+          <td class="col-1"><button type="submit" (click)="onUpdate()" class="btn btn-primary" >Update
+          </button></td>
         </tr>
         </tbody>
       </table>
+      <app-patient-update [show]="show" [patientToUpdate]="patientModel" *ngIf="show==true"></app-patient-update>
     </div>
   </form>
 </div>
