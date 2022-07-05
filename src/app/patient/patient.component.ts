@@ -12,23 +12,34 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class PatientComponent implements OnInit{
   patient$!: Observable<PatientModel>;
   patientForm! : FormGroup;
-  show=false;
+  showUpdate=false;
+  showCreate=false;
 
   constructor(private patientService: PatientService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.patientForm = this.formBuilder.group({
-      lastName: ['', {validators: Validators.required}],
-      firstName: ['', {validators: Validators.required}],
-    })
+      lastName: ['', {validators: [Validators.required, Validators.maxLength(100)]}],
+      firstName: ['', {validators: [Validators.required, Validators.maxLength(100)]}],
+    }, {
+      updateOn: 'blur'
+    });
   }
 
-  onSubmit() {
+  onSubmitSearch() {
   this.patient$ = this.patientService.getPatient(this.patientForm.value.firstName, this.patientForm.value.lastName);
+  this.showUpdate=false;
+  this.showCreate=false;
+  }
+
+  onSubmitCreate() {
+  this.showCreate=true;
+  this.showUpdate=false;
   }
 
   onUpdate() {
-  this.show=true;
+  this.showUpdate=true;
+  this.showCreate=false;
   }
 
 }

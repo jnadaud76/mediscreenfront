@@ -27,4 +27,8 @@ export class PatientService {
       return this.http.post(`http://localhost:8081/api/patient/patientupdate`, patientModel);
   }
 
+  createPatient(patientModel: PatientModel) {
+    return this.http.post(`http://localhost:8081/api/patient/addpatient`, patientModel);
+  }
+
 }

@@ -8,13 +8,15 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "./app-routing.module";
 import { HeaderComponent } from './header/header.component';
 import { PatientUpdateComponent } from './patient-update/patient-update.component';
+import { PatientCreateComponent } from './patient-create/patient-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientComponent,
     HeaderComponent,
-    PatientUpdateComponent
+    PatientUpdateComponent,
+    PatientCreateComponent
   ],
   imports: [
     BrowserModule,

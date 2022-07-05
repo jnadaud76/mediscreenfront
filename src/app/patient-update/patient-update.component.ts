@@ -14,21 +14,21 @@ export class PatientUpdateComponent implements OnInit {
   @Input()
   patientToUpdate!: PatientModel;
   @Input()
-  show!: boolean;
+  showUpdate!: boolean;
   patientUpdate!: PatientModel;
 
   constructor(private patientService: PatientService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.patientUpdateForm = this.formBuilder.group({
-      lastName: [this.patientToUpdate.lastName, {validators: Validators.required}],
-      firstName: [this.patientToUpdate.firstName, {validators: Validators.required}],
+      lastName: [this.patientToUpdate.lastName, {validators: [Validators.required, Validators.maxLength(100)]}],
+      firstName: [this.patientToUpdate.firstName, {validators: [Validators.required, Validators.maxLength(100)]}],
       dateOfBirth: [this.patientToUpdate.dateOfBirth, {validators: Validators.required}],
       gender: [this.patientToUpdate.gender, {validators: Validators.required}],
-      address: [this.patientToUpdate.address, {validators: Validators.required}],
-      phoneNumber: [this.patientToUpdate.phoneNumber, {validators: Validators.required}],
+      address: [this.patientToUpdate.address, {validators: [Validators.required, Validators.maxLength(300)]}],
+      phoneNumber: [this.patientToUpdate.phoneNumber, {validators: [Validators.required, Validators.maxLength(20)]}],
     }, {
-      updateOn: 'change'
+      updateOn: 'blur'
       });
   }
 
@@ -45,7 +45,7 @@ export class PatientUpdateComponent implements OnInit {
 
     this.patientService.updatePatient(this.patientUpdate).subscribe();
 
-    this.show=false;
+    this.showUpdate=false;
     window.location.reload();
   }
 

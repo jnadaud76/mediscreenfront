@@ -1,38 +1,38 @@
 <div class="registration-container col-10 border border-dark rounded py-5 m-auto">
-  <form [formGroup]="patientUpdateForm">
+  <form [formGroup]="patientCreateForm">
     <div class="text-center">
-      <h1>Patient Update form</h1>
+      <h1>Patient Create form</h1>
     </div>
     <div class="form-group col-11 mx-5 my-4">
       <div class="form-group  col-11 mx-5 my-4">
         <label for="firstName">First Name</label><br>
         <input class="col-11" id="firstName" type="text" formControlName="firstName">
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['firstName'].hasError('required') && patientUpdateForm.controls['firstName'].touched">
+             *ngIf="patientCreateForm.controls['firstName'].hasError('required') && patientCreateForm.controls['firstName'].touched">
           First Name is required
         </div>
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['firstName'].hasError('maxlength') && patientUpdateForm.controls['firstName'].touched">
+             *ngIf="patientCreateForm.controls['firstName'].hasError('maxlength') && patientCreateForm.controls['firstName'].touched">
           100 characters max.
         </div>
-    </div>
-    <div class="form-group  col-11 mx-5 my-4">
-      <label for="lastName">Last Name</label><br>
-      <input class="col-11" id="lastName" type="text" formControlName="lastName">
-      <div class="alert-danger col-11"
-           *ngIf="patientUpdateForm.controls['lastName'].hasError('required') && patientUpdateForm.controls['lastName'].touched">
-        Last Name is required
       </div>
-      <div class="alert-danger col-11"
-           *ngIf="patientUpdateForm.controls['lastName'].hasError('maxlength') && patientUpdateForm.controls['lastName'].touched">
-        100 characters max.
+      <div class="form-group  col-11 mx-5 my-4">
+        <label for="lastName">Last Name</label><br>
+        <input class="col-11" id="lastName" type="text" formControlName="lastName">
+        <div class="alert-danger col-11"
+             *ngIf="patientCreateForm.controls['lastName'].hasError('required') && patientCreateForm.controls['lastName'].touched">
+          Last Name is required
+        </div>
+        <div class="alert-danger col-11"
+             *ngIf="patientCreateForm.controls['lastName'].hasError('maxlength') && patientCreateForm.controls['lastName'].touched">
+          100 characters max.
+        </div>
       </div>
-    </div>
       <div class="form-group  col-11 mx-5 my-4">
         <label for="dateOfBirth">Date of birth</label><br>
         <input class="col-11" id="dateOfBirth" type="date" formControlName="dateOfBirth">
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['dateOfBirth'].hasError('required') && patientUpdateForm.controls['dateOfBirth'].touched">
+             *ngIf="patientCreateForm.controls['dateOfBirth'].hasError('required') && patientCreateForm.controls['dateOfBirth'].touched">
           Date of birth is required
         </div>
       </div>
@@ -47,11 +47,11 @@
         <label for="address">Address</label><br>
         <input class="col-11" id="address" type="text" formControlName="address">
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['address'].hasError('required') && patientUpdateForm.controls['address'].touched">
+             *ngIf="patientCreateForm.controls['address'].hasError('required') && patientCreateForm.controls['address'].touched">
           Address is required
         </div>
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['address'].hasError('maxlength') && patientUpdateForm.controls['address'].touched">
+             *ngIf="patientCreateForm.controls['address'].hasError('maxlength') && patientCreateForm.controls['address'].touched">
           300 characters max.
         </div>
       </div>
@@ -59,18 +59,18 @@
         <label for="phoneNumber">Phone Number</label><br>
         <input class="col-11" id="phoneNumber" type="text" formControlName="phoneNumber">
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['phoneNumber'].hasError('required') && patientUpdateForm.controls['phoneNumber'].touched">
+             *ngIf="patientCreateForm.controls['phoneNumber'].hasError('required') && patientCreateForm.controls['phoneNumber'].touched">
           Phone Number is required
         </div>
         <div class="alert-danger col-11"
-             *ngIf="patientUpdateForm.controls['phoneNumber'].hasError('maxlength') && patientUpdateForm.controls['phoneNumber'].touched">
+             *ngIf="patientCreateForm.controls['phoneNumber'].hasError('maxlength') && patientCreateForm.controls['phoneNumber'].touched">
           20 characters max.
         </div>
       </div>
       <div class="text-center mt-5">
-      <button type="submit" (click)="onSubmitForm()" class="btn btn-primary" [disabled]="patientUpdateForm.invalid">Validate
-      </button>
+        <button type="submit" (click)="onSubmitForm()" class="btn btn-primary" [disabled]="patientCreateForm.invalid">Validate
+        </button>
+      </div>
     </div>
-</div>
   </form>
 </div>

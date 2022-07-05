@@ -10,18 +10,32 @@
            *ngIf="patientForm.controls['lastName'].hasError('required') && patientForm.controls['lastName'].touched">
         Last Name is required
       </div>
+      <div class="alert-danger col-11"
+           *ngIf="patientForm.controls['lastName'].hasError('maxlength') && patientForm.controls['lastName'].touched">
+        100 characters max.
+      </div>
     </div>
     <div class="form-group  col-2 mx-5 my-4">
       <label for="firstName">First Name</label><br>
       <input class="col-11" id="firstName" type="text" placeholder="First name" formControlName="firstName">
       <div class="alert-danger col-11"
            *ngIf="patientForm.controls['firstName'].hasError('required') && patientForm.controls['firstName'].touched">
-        First Name is required
+        First Name is required.
+      </div>
+      <div class="alert-danger col-11"
+           *ngIf="patientForm.controls['firstName'].hasError('maxlength') && patientForm.controls['firstName'].touched">
+        100 characters max.
       </div>
     </div>
-    <div class="text-center mt-5">
-      <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="patientForm.invalid">Search
+    <div class="row-cols-6 mt-5 pb-4">
+
+      <button type="submit" (click)="onSubmitSearch()" class="btn btn-primary mx-5" [disabled]="patientForm.invalid">Search
       </button>
+
+
+      <button type="submit" (click)="onSubmitCreate()" class="btn btn-primary">Create
+      </button>
+
     </div>
     <div class="col-11 mx-auto" *ngIf="patient$ | async as patientModel">
       <h2>My patient</h2>
@@ -41,7 +55,7 @@
         <tr>
           <td class="col-1">{{patientModel.firstName}}</td>
           <td class="col-1">{{patientModel.lastName}}</td>
-          <td class="col-2">{{patientModel.dateOfBirth | date: 'yyyy/MM/dd'}}</td>
+          <td class="col-2">{{patientModel.dateOfBirth | date: 'yyyy-MM-dd'}}</td>
           <td class="col-1">{{patientModel.gender}}</td>
           <td class="col-4">{{patientModel.address}}</td>
           <td class="col-2">{{patientModel.phoneNumber}}</td>
@@ -50,7 +64,8 @@
         </tr>
         </tbody>
       </table>
-      <app-patient-update [show]="show" [patientToUpdate]="patientModel" *ngIf="show==true"></app-patient-update>
+      <app-patient-update [showUpdate]="showUpdate" [patientToUpdate]="patientModel" *ngIf="showUpdate==true"></app-patient-update>
     </div>
+        <app-patient-create [showCreate]="showCreate" *ngIf="showCreate==true"></app-patient-create>
   </form>
 </div>
