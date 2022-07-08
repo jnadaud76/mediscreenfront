@@ -22,7 +22,7 @@ export class PatientComponent implements OnInit{
       lastName: ['', {validators: [Validators.required, Validators.maxLength(100)]}],
       firstName: ['', {validators: [Validators.required, Validators.maxLength(100)]}],
     }, {
-      updateOn: 'blur'
+      updateOn: 'change'
     });
   }
 

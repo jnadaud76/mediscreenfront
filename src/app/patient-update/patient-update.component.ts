@@ -28,7 +28,7 @@ export class PatientUpdateComponent implements OnInit {
       address: [this.patientToUpdate.address, {validators: [Validators.required, Validators.maxLength(300)]}],
       phoneNumber: [this.patientToUpdate.phoneNumber, {validators: [Validators.required, Validators.maxLength(20)]}],
     }, {
-      updateOn: 'blur'
+      updateOn: 'change'
       });
   }
 

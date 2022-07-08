@@ -26,7 +26,7 @@ export class PatientCreateComponent implements OnInit {
       address: ['', {validators: [Validators.required, Validators.maxLength(300)]}],
       phoneNumber: ['', {validators: [Validators.required, Validators.maxLength(20)]}],
     }, {
-      updateOn: 'blur'
+      updateOn: 'change'
     });
   }
 
